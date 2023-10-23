@@ -56,7 +56,7 @@ export default function ({ getService }: FtrProviderContext) {
       expect(findEvent.kibana.space_id).to.be('default');
     });
 
-    it.skip('logs audit events when logging in successfully', async () => {
+    it('logs audit events when logging in successfully', async () => {
       await supertest
         .post('/internal/security/login')
         .set('kbn-xsrf', 'xxx')
@@ -80,7 +80,7 @@ export default function ({ getService }: FtrProviderContext) {
       expect(loginEvent.http.request.headers['x-forwarded-for']).to.be('1.1.1.1, 2.2.2.2');
     });
 
-    it.skip('logs audit events when failing to log in', async () => {
+    it('logs audit events when failing to log in', async () => {
       await supertest
         .post('/internal/security/login')
         .set('kbn-xsrf', 'xxx')
